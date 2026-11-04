@@ -279,3 +279,165 @@ button { font: inherit; color: inherit; cursor: pointer; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* ==========================================================================
+   SECCIONES: quiénes somos, servicios, alquiler, contacto y footer
+   ========================================================================== */
+[hidden] { display: none !important; }
+
+.wrap { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+
+.sec { position: relative; padding-block: clamp(56px, 8vw, 104px); }
+.sec--oscura { background: var(--negro); }
+.sec--carbon { background: var(--carbon); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.sec--amarilla { background: var(--amarillo); color: var(--negro); }
+.sec--amarilla :focus-visible { outline-color: var(--negro); }
+
+.sec__titulo {
+  position: relative; padding-left: 26px;
+  font: italic 800 clamp(2.2rem, 4.6vw, 3.4rem)/1 var(--display); text-transform: uppercase; letter-spacing: .005em; color: var(--blanco);
+}
+.sec__titulo::before {                       /* barra inclinada: eco de la placa del logo */
+  content: ""; position: absolute; left: 0; top: .08em; bottom: .08em; width: 11px;
+  background: var(--amarillo); transform: skewX(-18deg);
+}
+.sec--amarilla .sec__titulo { color: var(--negro); }
+.sec--amarilla .sec__titulo::before { background: var(--negro); }
+.sec__lead { margin-top: 16px; font: 500 clamp(1.1rem, 1.6vw, 1.3rem)/1.4 var(--cuerpo); color: var(--blanco); max-width: 46ch; }
+.sec--amarilla .sec__lead { color: var(--negro); font-weight: 600; }
+.sec__cabecera { max-width: 62ch; }
+
+/* Botones extra */
+.btn--grande { padding: 15px 26px; font-size: 1.08rem; }
+.btn--negro { background: var(--negro); color: var(--amarillo); }
+.btn--negro:hover { background: #2a2a2a; color: var(--amarillo); }
+.btn--linea { background: transparent; color: var(--negro); box-shadow: inset 0 0 0 2px var(--negro); }
+.btn--linea:hover { background: var(--negro); color: var(--amarillo); }
+
+/* ---------- Quiénes somos ---------- */
+.quienes { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.quienes__texto > p { margin-top: 16px; color: var(--texto); max-width: 54ch; font-size: 1.05rem; line-height: 1.6; }
+.quienes__texto > .sec__lead { margin-top: 22px; }
+.quienes__texto .btn { margin-top: 26px; }
+
+.collage {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(160px, 21vw, 280px); gap: 12px;
+}
+.collage__foto { margin: 0; overflow: hidden; background: #1a1a1a; }
+.collage__foto img { width: 100%; height: 100%; object-fit: cover; }
+.collage__foto--a { grid-column: 1 / 5; }
+.collage__foto--a img { object-position: 50% 30%; }
+.collage__foto--b { grid-column: 5 / 7; border-top: 5px solid var(--amarillo); }
+.collage__foto--b img { object-position: 45% 40%; }
+.collage__foto--c { grid-column: 1 / 4; border-left: 5px solid var(--amarillo); }
+.collage__foto--c img { object-position: 50% 45%; }
+.collage__foto--d { grid-column: 4 / 7; }
+.collage__foto--d img { object-position: 50% 30%; }
+
+/* ---------- Servicios ---------- */
+.grilla-servicios { margin-top: 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.servicio {
+  position: relative; display: flex; flex-direction: column; gap: 10px;
+  padding: 26px 22px 24px; background: #1b1b1b; border-top: 4px solid var(--amarillo);
+}
+.servicio::before {                          /* tilde amarillo, como en el flyer */
+  content: ""; width: 12px; height: 22px; margin-bottom: 4px;
+  border-right: 5px solid var(--amarillo); border-bottom: 5px solid var(--amarillo); transform: rotate(40deg) translate(2px, -4px); transform-origin: 50% 50%;
+}
+.servicio:target { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+.servicio__nombre { font: italic 800 1.5rem/1.05 var(--display); text-transform: uppercase; color: var(--blanco); }
+.servicio__texto { color: var(--texto); font-size: .98rem; line-height: 1.5; flex: 1; }
+.servicio__link { align-self: flex-start; padding-block: 6px; font: 700 .95rem/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--amarillo); text-decoration: underline; text-underline-offset: 5px; }
+.servicio__link:hover { color: var(--blanco); }
+.servicio--cta { background: var(--amarillo); color: var(--negro); }
+.servicio--cta::before { display: none; }
+.servicio--cta .servicio__nombre { color: var(--negro); }
+.servicio--cta .servicio__texto { color: var(--negro); font-weight: 500; }
+.servicio--cta .btn { align-self: flex-start; margin-top: 4px; background: var(--negro); color: var(--amarillo); }
+.servicio--cta .btn:hover { background: #2a2a2a; }
+
+/* ---------- Alquiler ---------- */
+.alquiler { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.alquiler__fotos { position: relative; padding: 0 28px 40px 0; }
+.alquiler__fotos figure { margin: 0; overflow: hidden; background: #000; }
+.alquiler__fotos img { width: 100%; height: 100%; object-fit: cover; }
+.alquiler__principal { aspect-ratio: 4 / 3; }
+.alquiler__principal img { object-position: 40% 50%; }
+.alquiler__flyer {                           /* el flyer apoyado sobre la foto, abajo a la derecha */
+  position: absolute; right: 0; bottom: 0; width: 38%; border: 5px solid var(--negro); box-shadow: 0 14px 30px rgb(0 0 0 / .35);
+}
+.alquiler__flyer img { height: auto; }
+.alquiler__lista { margin-top: 22px; display: grid; gap: 12px; font: 600 1.1rem/1.35 var(--cuerpo); }
+.alquiler__lista li { position: relative; padding-left: 36px; }
+.alquiler__lista li::before {
+  content: ""; position: absolute; left: 6px; top: .15em; width: 10px; height: 20px;
+  border-right: 4px solid var(--negro); border-bottom: 4px solid var(--negro); transform: rotate(40deg);
+}
+.alquiler__nota { margin-top: 20px; font-weight: 500; }
+.alquiler__acciones { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+.alquiler__acciones .btn { margin-top: 0; }
+
+/* ---------- Contacto ---------- */
+.contacto { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.datos { margin-top: 32px; display: grid; gap: 20px; }
+.datos__etiqueta { display: block; font: 700 .95rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--amarillo); }
+.datos__valor { display: inline-block; margin-top: 4px; font: italic 800 1.9rem/1.1 var(--display); letter-spacing: .01em; color: var(--blanco); }
+a.datos__valor:hover { color: var(--amarillo); }
+.datos__valor--texto { font-style: normal; font-weight: 600; font-size: 1.2rem; color: var(--texto); }
+
+.form { display: grid; gap: 16px; padding: clamp(20px, 3vw, 34px); background: #151515; border-top: 5px solid var(--amarillo); }
+.campo { display: grid; gap: 6px; }
+.campo label { font: 600 .95rem/1.2 var(--cuerpo); }
+.req { color: var(--amarillo); }
+.campo input, .campo select, .campo textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; background: #0c0c0c; color: var(--blanco);
+  border: 1.5px solid #3c3c3c; border-radius: 0; font: 400 1rem/1.4 var(--cuerpo);
+}
+.campo textarea { resize: vertical; min-height: 110px; }
+.campo select option { background: #0c0c0c; color: #fff; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 3px solid var(--amarillo); outline-offset: 1px; border-color: var(--amarillo); }
+.form__error { color: #ff8a78; font-weight: 600; min-height: 1.4em; }
+.form__aviso { color: var(--amarillo); font-weight: 600; }
+.form__aviso:empty { display: none; }
+.form__error:empty { min-height: 0; }
+.form .btn { margin-top: 0; justify-content: center; width: 100%; }
+.form__nota { font-size: .85rem; color: #b5b5b5; text-align: center; }
+
+/* ---------- Footer y botón flotante ---------- */
+.site-footer { background: #000; border-top: 4px solid var(--amarillo); padding-block: 40px; }
+.footer__inner { display: grid; grid-template-columns: auto 1fr; gap: 24px 48px; align-items: center; }
+.logo--pie { background: none; clip-path: none; padding: 0; align-items: flex-start; }
+.footer__nav { display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: flex-end; font: 600 1rem/1 var(--display); letter-spacing: .05em; text-transform: uppercase; }
+.footer__nav a { padding-block: 8px; color: #d6d6d6; }
+.footer__nav a:hover { color: var(--amarillo); }
+.footer__legal { grid-column: 1 / -1; padding-top: 22px; border-top: 1px solid var(--linea); font-size: .88rem; color: #a8a8a8; }
+
+.wa {
+  position: fixed; right: 20px; bottom: 20px; z-index: 150; width: 58px; height: 58px; display: grid; place-items: center;
+  border-radius: 50%; background: #1fa855; color: #fff; box-shadow: 0 6px 18px rgb(0 0 0 / .4);
+  transition: transform .15s ease, opacity .2s ease, visibility .2s ease;
+}
+.wa:hover { transform: scale(1.06); }
+.wa.is-hidden { opacity: 0; visibility: hidden; }
+
+/* ---------- Responsive de las secciones ---------- */
+@media (max-width: 1100px) {
+  .grilla-servicios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .quienes, .alquiler, .contacto { grid-template-columns: minmax(0, 1fr); }
+  .grilla-servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collage { grid-auto-rows: clamp(130px, 28vw, 220px); }
+  .footer__inner { grid-template-columns: minmax(0, 1fr); }
+  .footer__nav { justify-content: flex-start; }
+}
+@media (max-width: 560px) {
+  .wrap { padding-inline: 18px; }
+  .grilla-servicios { grid-template-columns: minmax(0, 1fr); }
+  .alquiler__fotos { padding: 0 14px 32px 0; }
+  .alquiler__flyer { width: 44%; }
+  .alquiler__acciones .btn { width: 100%; justify-content: center; }
+  .datos__valor { font-size: 1.6rem; }
+  .wa { right: 14px; bottom: 14px; }
+}

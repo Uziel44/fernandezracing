@@ -322,7 +322,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .quienes__texto .btn { margin-top: 26px; }
 
 .collage {
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(160px, 21vw, 280px); gap: 12px;
+  --fila: clamp(160px, 21vw, 280px);
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: var(--fila) var(--fila) auto; gap: 12px;
 }
 .collage__foto { margin: 0; overflow: hidden; background: #1a1a1a; }
 .collage__foto img { width: 100%; height: 100%; object-fit: cover; }
@@ -334,6 +335,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .collage__foto--c img { object-position: 50% 45%; }
 .collage__foto--d { grid-column: 4 / 7; }
 .collage__foto--d img { object-position: 50% 30%; }
+.collage__foto--e { grid-column: 1 / 7; aspect-ratio: 3 / 2; border-bottom: 5px solid var(--amarillo); }
+.collage__foto--e img { object-position: 50% 50%; }
 
 /* ---------- Servicios ---------- */
 .grilla-servicios { margin-top: 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
@@ -378,6 +381,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .alquiler__acciones { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
 .alquiler__acciones .btn { margin-top: 0; }
 
+.alquiler__tira { margin-top: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.alquiler__tira li { aspect-ratio: 1; overflow: hidden; background: #000; border-bottom: 5px solid var(--negro); }
+.alquiler__tira img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.22, .8, .2, 1); }
+.alquiler__tira li:hover img { transform: scale(1.05); }
+
 /* ---------- Contacto ---------- */
 .contacto { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
 .datos { margin-top: 32px; display: grid; gap: 20px; }
@@ -404,6 +412,44 @@ a.datos__valor:hover { color: var(--amarillo); }
 .form .btn { margin-top: 0; justify-content: center; width: 100%; }
 .form__nota { font-size: .85rem; color: #b5b5b5; text-align: center; }
 
+/* ---------- Galería ---------- */
+.galeria {
+  margin-top: 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(120px, 17vw, 210px); gap: 10px;
+}
+.galeria__item { position: relative; overflow: hidden; background: #1a1a1a; }
+.galeria__item--grande { grid-column: span 2; grid-row: span 2; }
+.galeria__btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.galeria__btn img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.22, .8, .2, 1), filter .3s ease; }
+.galeria__btn::after {                       /* raya amarilla que aparece al pasar el mouse */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--amarillo);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.galeria__btn:hover img, .galeria__btn:focus-visible img { transform: scale(1.05); filter: brightness(1.08); }
+.galeria__btn:hover::after, .galeria__btn:focus-visible::after { transform: none; }
+.galeria__btn:focus-visible { outline-offset: -4px; }
+
+/* Visor ampliado */
+.visor {
+  position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  background: rgb(0 0 0 / .94); color: var(--blanco); overflow: hidden;
+}
+.visor:not([open]) { display: none; }
+.visor[open] { display: grid; place-items: center; }
+.visor__fig { margin: 0; display: grid; justify-items: center; gap: 10px; padding: 64px 72px 24px; max-width: 100%; max-height: 100%; }
+.visor__img { max-width: 100%; max-height: calc(100vh - 130px); max-height: calc(100dvh - 130px); width: auto; height: auto; object-fit: contain; border-top: 4px solid var(--amarillo); background: #111; }
+.visor__pie { font: 600 1rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: #bdbdbd; }
+.visor__btn {
+  position: absolute; display: grid; place-items: center; width: 52px; height: 52px; padding: 0;
+  border: 0; background: rgb(255 255 255 / .1); color: var(--blanco); transition: background-color .15s ease, color .15s ease;
+}
+.visor__btn:hover { background: var(--amarillo); color: var(--negro); }
+.visor__btn svg { width: 14px; height: 22px; }
+.visor__cerrar { top: 12px; right: 12px; font: 400 2.2rem/1 var(--cuerpo); }
+.visor__ant { left: 12px; top: 50%; transform: translateY(-50%); }
+.visor__sig { right: 12px; top: 50%; transform: translateY(-50%); }
+body.visor-abierto { overflow: hidden; }
+
 /* ---------- Footer y botón flotante ---------- */
 .site-footer { background: #000; border-top: 4px solid var(--amarillo); padding-block: 40px; }
 .footer__inner { display: grid; grid-template-columns: auto 1fr; gap: 24px 48px; align-items: center; }
@@ -428,7 +474,11 @@ a.datos__valor:hover { color: var(--amarillo); }
 @media (max-width: 900px) {
   .quienes, .alquiler, .contacto { grid-template-columns: minmax(0, 1fr); }
   .grilla-servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .collage { grid-auto-rows: clamp(130px, 28vw, 220px); }
+  .collage { --fila: clamp(130px, 28vw, 220px); }
+  .galeria { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(110px, 24vw, 200px); }
+  .alquiler__tira { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .alquiler__tira li { grid-column: span 2; }
+  .alquiler__tira li:nth-child(n+4) { grid-column: span 3; }
   .footer__inner { grid-template-columns: minmax(0, 1fr); }
   .footer__nav { justify-content: flex-start; }
 }
@@ -440,4 +490,13 @@ a.datos__valor:hover { color: var(--amarillo); }
   .alquiler__acciones .btn { width: 100%; justify-content: center; }
   .datos__valor { font-size: 1.6rem; }
   .wa { right: 14px; bottom: 14px; }
+  .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(100px, 34vw, 170px); gap: 6px; }
+  .alquiler__tira { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .alquiler__tira li, .alquiler__tira li:nth-child(n+4) { grid-column: auto; }
+  .alquiler__tira li:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .visor__fig { padding: 64px 12px 16px; }
+  .visor__btn { width: 44px; height: 44px; }
+  .visor__ant, .visor__sig { top: auto; bottom: 12px; transform: none; }
+  .visor__ant { left: 12px; }
+  .visor__sig { right: 12px; }
 }

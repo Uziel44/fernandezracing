@@ -268,6 +268,58 @@
     [$('#contacto'), $('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
   }
 
+  /* ------------------------------------------------------------------------
+     4. GALERÍA: visor ampliado (flechas del teclado, Esc, clic fuera, deslizar)
+     ------------------------------------------------------------------------ */
+  var visor = $('#visor');
+  var fotos = $$('.galeria__btn img');
+  if (visor && fotos.length && typeof visor.showModal === 'function') {
+    var visorImg = $('#visor-img');
+    var visorCuenta = $('#visor-cuenta');
+    var actual = 0;
+    var origen = null;
+
+    var mostrar = function (i) {
+      actual = (i + fotos.length) % fotos.length;
+      visorImg.src = fotos[actual].currentSrc || fotos[actual].src;
+      visorImg.alt = fotos[actual].alt;
+      visorCuenta.textContent = (actual + 1) + ' / ' + fotos.length;
+    };
+    var abrirVisor = function (i) {
+      origen = document.activeElement;
+      mostrar(i);
+      visor.showModal();
+      document.body.classList.add('visor-abierto');
+    };
+    var cerrarVisor = function () { visor.close(); };
+
+    fotos.forEach(function (img, i) {
+      img.closest('button').addEventListener('click', function () { abrirVisor(i); });
+    });
+    $('#visor-cerrar').addEventListener('click', cerrarVisor);
+    $('#visor-ant').addEventListener('click', function () { mostrar(actual - 1); });
+    $('#visor-sig').addEventListener('click', function () { mostrar(actual + 1); });
+
+    visor.addEventListener('click', function (e) { if (e.target === visor) cerrarVisor(); });
+    visor.addEventListener('close', function () {
+      document.body.classList.remove('visor-abierto');
+      if (origen) origen.focus();
+    });
+    visor.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); mostrar(actual + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); mostrar(actual - 1); }
+    });
+
+    var vx0 = null;
+    visor.addEventListener('pointerdown', function (e) { vx0 = e.clientX; });
+    visor.addEventListener('pointerup', function (e) {
+      if (vx0 === null) return;
+      var dx = e.clientX - vx0;
+      vx0 = null;
+      if (Math.abs(dx) > 60) mostrar(dx < 0 ? actual + 1 : actual - 1);
+    });
+  }
+
   var anio = $('#year');
   if (anio) anio.textContent = new Date().getFullYear();
 })();

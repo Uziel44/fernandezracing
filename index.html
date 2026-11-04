@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fernandez Racing | Servicios para el automovilismo de pista</title>
+<meta name="description" content="Alquiler de autos, atención en pista, adquisición de datos, cajas de competición, asesoramiento, armado de autos y banco de pruebas a rodillo.">
+<meta name="theme-color" content="#0a0a0a">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fernandez Racing">
+<meta property="og:title" content="Fernandez Racing | Servicios para el automovilismo de pista">
+<meta property="og:description" content="Alquiler de autos, atención en pista, adquisición de datos, cajas de competición, asesoramiento, armado de autos y banco de pruebas a rodillo.">
+<meta property="og:locale" content="es_AR">
+<!-- COMPLETAR: URL real del sitio. La imagen para compartir se arma con la foto del hero. -->
+<meta property="og:image" content="img/78941596_2815378921848199_495023782914686976_n.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,800&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ==========================================================================
+     HEADER: logo + menú + Instagram
+     ========================================================================== -->
+<header class="site-header" id="header">
+  <a class="logo" href="#inicio" aria-label="Fernandez Racing, inicio">
+    <span class="logo__a">FERNANDEZ</span>
+    <span class="logo__b">RACING</span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Principal">
+    <ul class="nav__lista">
+
+      <li class="nav__item nav__item--sub">
+        <button class="nav__link" type="button" aria-expanded="false" aria-controls="menu-servicios" id="btn-servicios">
+          Servicios
+          <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
+        </button>
+        <ul class="submenu" id="menu-servicios" aria-labelledby="btn-servicios">
+          <li><a href="#servicios">Alquiler de autos</a></li>
+          <li><a href="#servicios">Atención en pista</a></li>
+          <li><a href="#servicios">Adquisición de datos</a></li>
+          <li><a href="#servicios">Cajas de competición</a></li>
+          <li><a href="#servicios">Asesoramiento</a></li>
+          <li><a href="#servicios">Armado de autos</a></li>
+          <li><a href="#servicios">Banco de pruebas a rodillo</a></li>
+        </ul>
+      </li>
+
+      <!-- Los enlaces de abajo apuntan a secciones que se arman más adelante -->
+      <li class="nav__item"><a class="nav__link" href="#equipo">Equipo</a></li>
+      <li class="nav__item"><a class="nav__link" href="#resultados">Resultados</a></li>
+      <li class="nav__item"><a class="nav__link" href="#galeria">Galería</a></li>
+      <li class="nav__item"><a class="nav__link" href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <a class="header__ig" href="https://www.instagram.com/fernandezracing1/" target="_blank" rel="noopener" aria-label="Instagram de Fernandez Racing (se abre en una pestaña nueva)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg>
+  </a>
+
+  <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="contenido">
+
+<!-- ==========================================================================
+     HERO: slider con las diapositivas vecinas asomando (estructura de teampenske.com)
+     Para cambiar una diapositiva: editá su <article class="slide"> (foto, título, texto).
+     Para agregar otra: copiá un bloque entero. El JS cuenta las diapositivas solo.
+     data-caja="arriba" o "izquierda" mueve la caja de texto para no tapar el auto de la foto.
+     ========================================================================== -->
+<section class="hero" id="inicio" aria-roledescription="carrusel" aria-label="Fernandez Racing">
+
+  <div class="hero__escenario" id="escenario" tabindex="0" aria-live="off">
+
+    <article class="slide" aria-roledescription="diapositiva" aria-label="1 de 5" data-caja="arriba">
+      <img class="slide__img" src="img/78941596_2815378921848199_495023782914686976_n.jpg" alt="Fiat Uno naranja de Fernandez Racing, número 96, a toda velocidad en pista" width="960" height="640" fetchpriority="high" style="object-position: 50% 72%">
+      <div class="slide__caja">
+        <h1 class="slide__titulo">Fernandez Racing</h1>
+        <p class="slide__texto">Alquiler de autos, atención en pista, adquisición de datos, cajas de competición, asesoramiento, armado de autos y banco de pruebas a rodillo.</p>
+        <a class="btn" href="#servicios">Ver servicios</a>
+      </div>
+    </article>
+
+    <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 5" data-servicio="pista">
+      <img class="slide__img" src="img/67584563_2544597295593031_1540115211522932736_n.jpg" alt="Mecánicos trabajando sobre el auto número 96 en el box" width="960" height="640" loading="lazy" style="object-position: 50% 55%">
+      <div class="slide__caja">
+        <h2 class="slide__titulo">Atención en pista</h2>
+        <p class="slide__texto">Asistencia en boxes y en pista durante toda la competencia.</p>
+        <a class="btn" href="#servicios">Ver más</a>
+      </div>
+    </article>
+
+    <article class="slide" aria-roledescription="diapositiva" aria-label="3 de 5" data-servicio="alquiler" data-caja="izquierda">
+      <img class="slide__img" src="img/78424265_2815376818515076_3595623500678692864_n.jpg" alt="Auto de turismo pista de Fernandez Racing tomando una curva" width="960" height="640" loading="lazy" style="object-position: 50% 68%">
+      <div class="slide__caja">
+        <h2 class="slide__titulo">Alquiler de autos</h2>
+        <p class="slide__texto">Autos de turismo pista listos para correr, con atención en pista.</p>
+        <a class="btn" href="#servicios">Ver más</a>
+      </div>
+    </article>
+
+    <article class="slide" aria-roledescription="diapositiva" aria-label="4 de 5" data-servicio="datos">
+      <img class="slide__img" src="img/514284190_24276059168686864_4501694447929664328_n.jpg" alt="Piloto con casco dentro de la jaula de seguridad del auto" width="1280" height="960" loading="lazy" style="object-position: 50% 45%">
+      <div class="slide__caja">
+        <h2 class="slide__titulo">Adquisición de datos</h2>
+        <p class="slide__texto">Medimos el auto y el piloto para entender qué pasa en cada vuelta.</p>
+        <a class="btn" href="#servicios">Ver más</a>
+      </div>
+    </article>
+
+    <article class="slide" aria-roledescription="diapositiva" aria-label="5 de 5" data-servicio="armado">
+      <img class="slide__img" src="img/48371529_2116324025087029_3456823356106473472_n.jpg" alt="El equipo de Fernandez Racing junto a un auto de competición en boxes" width="1844" height="1230" loading="lazy" style="object-position: 50% 60%">
+      <div class="slide__caja">
+        <h2 class="slide__titulo">Asesoramiento y armado de autos</h2>
+        <p class="slide__texto">Un equipo que te acompaña dentro y fuera de la pista.</p>
+        <a class="btn" href="#servicios">Ver más</a>
+      </div>
+    </article>
+
+    <!-- Paginación y pausa: viven sobre la diapositiva activa (las arma js/main.js) -->
+    <div class="hero__controles" id="controles">
+      <button class="pausa" id="pausa" type="button" aria-label="Pausar el cambio automático" aria-pressed="false">
+        <svg class="pausa__pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>
+        <svg class="pausa__play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1l8 5-8 5z"/></svg>
+      </button>
+      <div class="puntos" id="puntos" role="group" aria-label="Elegir diapositiva"></div>
+    </div>
+
+  </div>
+
+  <!-- Franja de servicios (igual a la de series de teampenske.com). La diapositiva activa marca el suyo. -->
+  <div class="hero__franja">
+    <ul class="servicios" aria-label="Servicios">
+      <li class="servicios__item" data-servicio="alquiler">Alquiler de autos</li>
+      <li class="servicios__item" data-servicio="pista">Atención en pista</li>
+      <li class="servicios__item" data-servicio="datos">Adquisición de datos</li>
+      <li class="servicios__item" data-servicio="cajas">Cajas de competición</li>
+      <li class="servicios__item" data-servicio="asesoramiento">Asesoramiento</li>
+      <li class="servicios__item" data-servicio="armado">Armado de autos</li>
+      <li class="servicios__item" data-servicio="banco">Banco de pruebas a rodillo</li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- Acá siguen las demás secciones (servicios, equipo, resultados, galería y contacto) -->
+
+</main>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

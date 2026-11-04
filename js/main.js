@@ -4,10 +4,16 @@
    2. Slider: las diapositivas vecinas asoman, se avanza con puntos, flechas del
       teclado, toque en la diapositiva vecina, deslizando el dedo o solo cada
       unos segundos (con botón de pausa y sin movimiento si la persona lo pidió).
+   3. Contacto: WhatsApp (si está cargado) o el chat de Instagram, formulario y año
    ========================================================================== */
 
 (function () {
   'use strict';
+
+  // ---- Configuración: cambiá estos datos y se actualiza toda la web ----
+  var WHATSAPP = '';                   // COMPLETAR: código de país + número, sin "+" ni espacios (ej. 5493511234567)
+  var INSTAGRAM = 'fernandezracing1';  // usuario de Instagram, sin "@"
+  // ----------------------------------------------------------------------
 
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
@@ -176,4 +182,92 @@
 
   dibujar(true);
   arrancar();
+
+  /* ------------------------------------------------------------------------
+     3. CONTACTO
+     Con WHATSAPP cargado: aparecen los botones de WhatsApp y el formulario abre el chat.
+     Sin WHATSAPP: el formulario copia el mensaje y abre el chat de Instagram.
+     ------------------------------------------------------------------------ */
+  var enlaceWhatsApp = function (texto) { return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto); };
+
+  if (WHATSAPP) {
+    $$('[data-wa]').forEach(function (a) { a.href = enlaceWhatsApp(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
+    $$('[data-wa-dato], #wa').forEach(function (el) { el.hidden = false; });
+    var nota = $('#form-nota');
+    if (nota) nota.textContent = 'Se abre WhatsApp con tu mensaje listo. No guardamos tus datos.';
+  }
+
+  // Los botones "Consultar disponibilidad" llegan al formulario con la opción ya elegida
+  $$('[data-interes]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = $('#f-interes');
+      if (sel) sel.value = a.dataset.interes;
+    });
+  });
+
+  var form = $('#form');
+  if (form) {
+    var error = $('#form-error');
+    var aviso = $('#form-aviso');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      aviso.textContent = '';
+      var nombre = form.nombre.value.trim();
+      var telefono = form.telefono.value.trim();
+      var faltan = [];
+      if (!nombre) faltan.push('tu nombre');
+      if (telefono.replace(/\D/g, '').length < 7 || !/^[0-9+()\-\s]+$/.test(telefono)) faltan.push('tu teléfono (solo números)');
+      if (faltan.length) { error.textContent = 'Antes de enviar, completá ' + faltan.join(' y ') + '.'; return; }
+      error.textContent = '';
+
+      var lineas = ['Hola Fernandez Racing, quiero hacer una consulta.', ''];
+      lineas.push('Nombre: ' + nombre);
+      lineas.push('Teléfono: ' + telefono);
+      if (form.interes.value) lineas.push('Me interesa: ' + form.interes.value);
+      if (form.mensaje.value.trim()) lineas.push('Mensaje: ' + form.mensaje.value.trim());
+      var texto = lineas.join('\n');
+
+      if (WHATSAPP) {
+        var url = enlaceWhatsApp(texto);
+        if (url.length > 2000) { error.textContent = 'El mensaje es muy largo para WhatsApp. Acortalo.'; return; }
+        var v = window.open(url, '_blank');
+        if (v) v.opener = null; else window.location.href = url;
+        return;
+      }
+
+      // Sin WhatsApp: se copia el mensaje y se abre el chat de Instagram
+      var abrirIG = function (copiado) {
+        aviso.textContent = copiado
+          ? 'Copiamos tu mensaje. Pegalo en el chat de Instagram y enviálo.'
+          : 'Escribinos por Instagram y contanos qué necesitás.';
+        var v = window.open('https://ig.me/m/' + INSTAGRAM, '_blank');
+        if (v) v.opener = null;
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texto).then(function () { abrirIG(true); }, function () { abrirIG(false); });
+      } else {
+        abrirIG(false);
+      }
+    });
+
+    form.addEventListener('input', function () { error.textContent = ''; });
+    form.telefono.addEventListener('input', function () {
+      form.telefono.value = form.telefono.value.replace(/[^0-9+()\-\s]/g, '');
+    });
+  }
+
+  // El botón flotante de WhatsApp se esconde cuando ya se ve el formulario o el footer
+  var wa = $('#wa');
+  if (wa && 'IntersectionObserver' in window) {
+    var visibles = new Set();
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) { if (en.isIntersecting) visibles.add(en.target); else visibles.delete(en.target); });
+      wa.classList.toggle('is-hidden', visibles.size > 0);
+    });
+    [$('#contacto'), $('.site-footer')].forEach(function (el) { if (el) io.observe(el); });
+  }
+
+  var anio = $('#year');
+  if (anio) anio.textContent = new Date().getFullYear();
 })();

@@ -41,6 +41,7 @@
 
   <nav class="nav" id="nav" aria-label="Principal">
     <ul class="nav__lista">
+      <li class="nav__item"><a class="nav__link" href="#quienes-somos">Quiénes somos</a></li>
 
       <li class="nav__item nav__item--sub">
         <button class="nav__link" type="button" aria-expanded="false" aria-controls="menu-servicios" id="btn-servicios">
@@ -48,20 +49,17 @@
           <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
         </button>
         <ul class="submenu" id="menu-servicios" aria-labelledby="btn-servicios">
-          <li><a href="#servicios">Alquiler de autos</a></li>
-          <li><a href="#servicios">Atención en pista</a></li>
-          <li><a href="#servicios">Adquisición de datos</a></li>
-          <li><a href="#servicios">Cajas de competición</a></li>
-          <li><a href="#servicios">Asesoramiento</a></li>
-          <li><a href="#servicios">Armado de autos</a></li>
-          <li><a href="#servicios">Banco de pruebas a rodillo</a></li>
+          <li><a href="#alquiler">Alquiler de autos</a></li>
+          <li><a href="#srv-pista">Atención en pista</a></li>
+          <li><a href="#srv-datos">Adquisición de datos</a></li>
+          <li><a href="#srv-cajas">Cajas de competición</a></li>
+          <li><a href="#srv-asesoramiento">Asesoramiento</a></li>
+          <li><a href="#srv-armado">Armado de autos</a></li>
+          <li><a href="#srv-banco">Banco de pruebas a rodillo</a></li>
         </ul>
       </li>
 
-      <!-- Los enlaces de abajo apuntan a secciones que se arman más adelante -->
-      <li class="nav__item"><a class="nav__link" href="#equipo">Equipo</a></li>
-      <li class="nav__item"><a class="nav__link" href="#resultados">Resultados</a></li>
-      <li class="nav__item"><a class="nav__link" href="#galeria">Galería</a></li>
+      <li class="nav__item"><a class="nav__link" href="#alquiler">Alquiler de autos</a></li>
       <li class="nav__item"><a class="nav__link" href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -101,7 +99,7 @@
       <div class="slide__caja">
         <h2 class="slide__titulo">Atención en pista</h2>
         <p class="slide__texto">Asistencia en boxes y en pista durante toda la competencia.</p>
-        <a class="btn" href="#servicios">Ver más</a>
+        <a class="btn" href="#srv-pista">Ver más</a>
       </div>
     </article>
 
@@ -110,7 +108,7 @@
       <div class="slide__caja">
         <h2 class="slide__titulo">Alquiler de autos</h2>
         <p class="slide__texto">Autos de turismo pista listos para correr, con atención en pista.</p>
-        <a class="btn" href="#servicios">Ver más</a>
+        <a class="btn" href="#alquiler">Ver más</a>
       </div>
     </article>
 
@@ -119,7 +117,7 @@
       <div class="slide__caja">
         <h2 class="slide__titulo">Adquisición de datos</h2>
         <p class="slide__texto">Medimos el auto y el piloto para entender qué pasa en cada vuelta.</p>
-        <a class="btn" href="#servicios">Ver más</a>
+        <a class="btn" href="#srv-datos">Ver más</a>
       </div>
     </article>
 
@@ -128,7 +126,7 @@
       <div class="slide__caja">
         <h2 class="slide__titulo">Asesoramiento y armado de autos</h2>
         <p class="slide__texto">Un equipo que te acompaña dentro y fuera de la pista.</p>
-        <a class="btn" href="#servicios">Ver más</a>
+        <a class="btn" href="#srv-asesoramiento">Ver más</a>
       </div>
     </article>
 
@@ -158,9 +156,216 @@
 
 </section>
 
-<!-- Acá siguen las demás secciones (servicios, equipo, resultados, galería y contacto) -->
+<!-- ==========================================================================
+     QUIÉNES SOMOS
+     COMPLETAR: es un texto base. Contá la historia real: desde cuándo corren, qué
+     categorías, quiénes son, logros. Reemplazá también las fotos si tenés mejores.
+     ========================================================================== -->
+<section class="sec sec--oscura" id="quienes-somos">
+  <div class="wrap quienes">
+
+    <div class="quienes__texto">
+      <h2 class="sec__titulo">Quiénes somos</h2>
+      <p class="sec__lead">Somos Fernandez Racing, un equipo del automovilismo de pista.</p>
+      <p>Trabajamos con autos de competición y acompañamos a pilotos y equipos antes, durante y después de cada carrera.</p>
+      <p>Nos ocupamos de lo que hace falta para salir a la pista: armamos y preparamos autos, atendemos en boxes y en pista, medimos y analizamos datos y alquilamos autos de turismo pista listos para correr.</p>
+      <p>Si ya tenés tu auto o querés correr por primera vez, hablá con nosotros y vemos cómo ayudarte.</p>
+      <a class="btn" href="#contacto">Hablemos</a>
+    </div>
+
+    <div class="collage" aria-label="Fotos del equipo">
+      <figure class="collage__foto collage__foto--a">
+        <img src="img/02.jpg" alt="Integrantes del equipo posando juntos en el box" width="678" height="460" loading="lazy">
+      </figure>
+      <figure class="collage__foto collage__foto--b">
+        <img src="img/03.jpg" alt="El equipo reunido alrededor de un auto de competición y una copa" width="673" height="433" loading="lazy">
+      </figure>
+      <figure class="collage__foto collage__foto--c">
+        <img src="img/04.jpg" alt="Grupo del equipo junto a los autos en los boxes" width="646" height="330" loading="lazy">
+      </figure>
+      <figure class="collage__foto collage__foto--d">
+        <img src="img/48371529_2116324025087029_3456823356106473472_n.jpg" alt="Tres integrantes del equipo junto a un auto de Fernandez Racing" width="1844" height="1230" loading="lazy">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SERVICIOS (los 7 del flyer)
+     COMPLETAR: revisá cada descripción; son textos cortos de base.
+     ========================================================================== -->
+<section class="sec sec--carbon" id="servicios">
+  <div class="wrap">
+
+    <div class="sec__cabecera">
+      <h2 class="sec__titulo">Servicios</h2>
+      <p class="sec__lead">Lo que hacemos por tu auto y por tu carrera.</p>
+    </div>
+
+    <ul class="grilla-servicios">
+      <li class="servicio" id="srv-alquiler">
+        <h3 class="servicio__nombre">Alquiler de autos</h3>
+        <p class="servicio__texto">Autos de turismo pista completos, con motor y atención en pista.</p>
+        <a class="servicio__link" href="#alquiler">Ver alquiler</a>
+      </li>
+      <li class="servicio" id="srv-pista">
+        <h3 class="servicio__nombre">Atención en pista</h3>
+        <p class="servicio__texto">Asistencia mecánica y técnica en boxes y en pista durante la competencia.</p>
+      </li>
+      <li class="servicio" id="srv-datos">
+        <h3 class="servicio__nombre">Adquisición de datos</h3>
+        <p class="servicio__texto">Registramos y analizamos datos del auto y del piloto para entender qué pasa en cada vuelta.</p>
+      </li>
+      <li class="servicio" id="srv-cajas">
+        <h3 class="servicio__nombre">Cajas de competición</h3>
+        <p class="servicio__texto">Cajas de cambio preparadas para el uso en competición.</p>
+      </li>
+      <li class="servicio" id="srv-asesoramiento">
+        <h3 class="servicio__nombre">Asesoramiento</h3>
+        <p class="servicio__texto">Te orientamos para elegir, preparar y poner a punto tu auto.</p>
+      </li>
+      <li class="servicio" id="srv-armado">
+        <h3 class="servicio__nombre">Armado de autos</h3>
+        <p class="servicio__texto">Armamos autos de competición a medida de tu categoría.</p>
+      </li>
+      <li class="servicio" id="srv-banco">
+        <h3 class="servicio__nombre">Banco de pruebas a rodillo</h3>
+        <p class="servicio__texto">Probamos el auto en banco de rodillos para medir su rendimiento.</p>
+      </li>
+      <li class="servicio servicio--cta">
+        <h3 class="servicio__nombre">¿Otra consulta?</h3>
+        <p class="servicio__texto">Contanos qué necesitás y te decimos cómo podemos ayudarte.</p>
+        <a class="btn" href="#contacto">Escribinos</a>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ALQUILER DE AUTOS DE CARRERA
+     Del flyer: «Se alquila turismo pista. Completo con motor y atención en pista».
+     COMPLETAR: agregá categorías, disponibilidad y condiciones si querés publicarlas.
+     ========================================================================== -->
+<section class="sec sec--amarilla" id="alquiler">
+  <div class="wrap alquiler">
+
+    <div class="alquiler__fotos">
+      <figure class="alquiler__principal">
+        <img src="img/77150881_2815376658515092_3035788283310243840_n.jpg" alt="Fiat Uno blanco de Fernandez Racing con el cartel Se alquila, en pista" width="960" height="640" loading="lazy">
+      </figure>
+      <figure class="alquiler__flyer">
+        <img src="img/Screenshot%202026-10-23%20000233.jpg" alt="Flyer: se alquila turismo pista, completo con motor y atención en pista" width="523" height="673" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="alquiler__texto">
+      <h2 class="sec__titulo">Alquiler de autos de carrera</h2>
+      <p class="sec__lead">Turismo pista completo, con motor y atención en pista.</p>
+      <ul class="alquiler__lista">
+        <li>Auto de turismo pista completo, con motor</li>
+        <li>Atención en pista durante la competencia</li>
+        <li>Asesoramiento para tu próxima carrera</li>
+      </ul>
+      <p class="alquiler__nota">Consultá disponibilidad, categorías y condiciones.</p>
+      <div class="alquiler__acciones">
+        <a class="btn btn--negro" href="#contacto" data-interes="Alquiler de autos de carrera">Consultar disponibilidad</a>
+        <a class="btn btn--linea" href="https://www.instagram.com/fernandezracing1/" target="_blank" rel="noopener">Ver más en Instagram</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CONTACTO
+     Si no hay WhatsApp cargado (js/main.js), el formulario copia el mensaje y abre el
+     chat de Instagram de @fernandezracing1. Con WhatsApp cargado, lo abre directo.
+     ========================================================================== -->
+<section class="sec sec--oscura" id="contacto">
+  <div class="wrap contacto">
+
+    <div class="contacto__info">
+      <h2 class="sec__titulo">Contacto</h2>
+      <p class="sec__lead">Contanos qué necesitás y te respondemos.</p>
+
+      <ul class="datos">
+        <li>
+          <span class="datos__etiqueta">Instagram</span>
+          <a class="datos__valor" href="https://www.instagram.com/fernandezracing1/" target="_blank" rel="noopener">@fernandezracing1</a>
+        </li>
+        <li data-wa-dato hidden>
+          <span class="datos__etiqueta">WhatsApp</span>
+          <a class="datos__valor" data-wa="Hola, quiero hacer una consulta." href="#contacto">Escribinos</a>
+        </li>
+        <!-- COMPLETAR: ubicación y horarios -->
+        <li>
+          <span class="datos__etiqueta">Ubicación</span>
+          <span class="datos__valor datos__valor--texto">COMPLETAR</span>
+        </li>
+      </ul>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <div class="campo">
+        <label for="f-nombre">Tu nombre <span class="req">*</span></label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="80" required>
+      </div>
+      <div class="campo">
+        <label for="f-telefono">Tu teléfono <span class="req">*</span></label>
+        <input id="f-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="Solo números" required>
+      </div>
+      <div class="campo">
+        <label for="f-interes">¿Qué te interesa?</label>
+        <select id="f-interes" name="interes">
+          <option value="">Elegí una opción</option>
+          <option>Alquiler de autos de carrera</option>
+          <option>Atención en pista</option>
+          <option>Adquisición de datos</option>
+          <option>Cajas de competición</option>
+          <option>Asesoramiento</option>
+          <option>Armado de autos</option>
+          <option>Banco de pruebas a rodillo</option>
+          <option>Otra consulta</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="f-mensaje">Mensaje</label>
+        <textarea id="f-mensaje" name="mensaje" rows="4" maxlength="500"></textarea>
+      </div>
+      <p class="form__error" id="form-error" role="alert"></p>
+      <p class="form__aviso" id="form-aviso" role="status"></p>
+      <button class="btn btn--grande" type="submit" id="form-enviar">Enviar consulta</button>
+      <p class="form__nota" id="form-nota">Se abre el chat de Instagram con tu mensaje copiado. No guardamos tus datos.</p>
+    </form>
+
+  </div>
+</section>
 
 </main>
+
+<footer class="site-footer">
+  <div class="wrap footer__inner">
+    <a class="logo logo--pie" href="#inicio" aria-label="Fernandez Racing, volver al inicio">
+      <span class="logo__a">FERNANDEZ</span>
+      <span class="logo__b">RACING</span>
+    </a>
+    <nav class="footer__nav" aria-label="Pie de página">
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#alquiler">Alquiler de autos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://www.instagram.com/fernandezracing1/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p class="footer__legal">&copy; <span id="year">2026</span> Fernandez Racing. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="wa" id="wa" data-wa="Hola, quiero hacer una consulta." href="#contacto" aria-label="Escribir por WhatsApp" hidden>
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.82 11.82 0 0 0 20.465 3.49"/></svg>
+</a>
+
 
 <script src="js/main.js" defer></script>
 </body>
